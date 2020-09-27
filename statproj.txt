@@ -1,0 +1,8 @@
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+python-m venv venv
+cd 
+ls
+git init 
+git config --global user.name "Danya"
+$ git config --global user.email "danynedostup@gmail.com"
+git add
