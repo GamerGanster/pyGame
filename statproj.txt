@@ -1,5 +1,6 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 python-m venv venv
+.\venv\Scripts\activate
 cd 
 ls
 git init 
