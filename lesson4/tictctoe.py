@@ -12,10 +12,10 @@ def inputPlayerLetter():
         return ['O', 'X'] # player, bot
 
 def choiceRandom():
-    if ranom.randit(0,1) == 0:
-        return 'Bot'
+    if random.randit(0,1) == 0:
+        return ['O', 'X'] # 'Bot'
     else:
-        retun 'Player'
+        return ['X', 'O'] # 'Player'
 
 def choiceO():
     return ['0','X']
