@@ -12,7 +12,7 @@ def inputPlayerLetter():
         return ['O', 'X'] # player, bot
 
 def choiceRandom():
-    if random.randit(0,1) == 0:
+    if random.randint(0,1) == 0:
         return ['O', 'X'] # 'Bot'
     else:
         return ['X', 'O'] # 'Player'
@@ -23,9 +23,11 @@ def choiceO():
 def choiceX():
     return['0','X']
 
-print(inputPlayerLetter()) # check?
+#print(inputPlayerLetter()) # check?
 def printWelcome():
     menu = """
+    Welcome to 'Tic-tac-toe'
+    Please, choose your character/symbol
     Menu:
     1. Choice X
     2. Choice O
@@ -48,6 +50,55 @@ def printWelcome():
     else:
         return -1 # ERROR
 
-choices = printWelcome()
-print('Player goes', choices[0])
-print('Bot goes', choice[1])
+
+#print('Player goes', choices[0])
+#print('Bot goes', choice[1])
+
+
+def whoGoesFirst():
+    if random.randint(0,1) == 0:
+        return 'Player'
+    else:
+        return 'Bot'
+
+
+def isWinner(board, letter):
+    return(
+        (board[1] == letter and board[2] == letter and board[3] == letter) or
+        (board[4] == letter and board[5] == letter and board[6] == letter) or
+        (board[7] == letter and board[8] == letter and board[9] == letter) or
+        (board[1] == letter and board[4] == letter and board[7] == letter) or
+        (board[2] == letter and board[5] == letter and board[8] == letter) or
+        (board[3] == letter and board[6] == letter and board[9] == letter) or
+        (board[1] == letter and board[5] == letter and board[9] == letter) or
+        (board[3] == letter and board[5] == letter and board[7] == letter)
+    )
+
+def makeMove(board, letter, move):
+    board[move] = letter
+
+
+def main():
+    while True:
+        theBoard = [''] * 10
+
+
+        playerLetter, botLetter = printWelcome()
+
+
+        gameIsPlaying = True
+
+        while gameIsPlaying:
+            # code for palying
+
+            print('Do you want to play again?(yes/no)') 
+            if not (input().lower().startswith('y')):
+                break
+
+
+
+
+if __name__ =='_main_':
+    main()
+
+
