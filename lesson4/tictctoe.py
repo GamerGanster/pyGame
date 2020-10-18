@@ -77,22 +77,54 @@ def isWinner(board, letter):
 def makeMove(board, letter, move):
     board[move] = letter
 
+def drawBoard(board):
+    
+
+    print(board[7] +'|' + board[8] + '|' + board[9])
+    print('-+-+-')
+    print(board[4] +'|' + board[5] + '|' + board[6])
+    print('-+-+-')
+    print(board[1] +'|' + board[2] + '|' + board[3])
+    print('-+-+-')   
+
+def isSpaceFree(board, move):
+    return board[move] == ' '
+    
+    def getPlayerMove(board):
+    move = ' '
+    while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)) :
+        move = input('What is your next step? (1-9) : ')
+    return int(move) 
+
+def getBotMove(board):
+    pass
 
 def main():
     while True:
-        theBoard = [''] * 10
+        theBoard = [' '] * 10
 
 
         playerLetter, botLetter = printWelcome()
 
+        turn = WhoGoesFirst()
+        print('\n' + turn + 'goes first.')
 
         gameIsPlaying = True
 
         while gameIsPlaying:
             # code for palying
+            if turn == 'Player':
+                drawBoard(theBoard)
+                move = getPlayerMove(theBoard)
+                makeMove(board, playerletter, move)
 
-            print('Do you want to play again?(yes/no)') 
-            if not (input().lower().startswith('y')):
+
+            else:
+                move = getBotMove(theBoard)
+                makeMove(board, playerletter, move)
+
+
+            if not input('Do you want to play again? (yes/no) : ').lower().startswith('y') or input().lower().startswith('Y'):
                 break
 
 
