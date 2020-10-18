@@ -90,7 +90,7 @@ def drawBoard(board):
 def isSpaceFree(board, move):
     return board[move] == ' '
     
-    def getPlayerMove(board):
+def getPlayerMove(board):
     move = ' '
     while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)) :
         move = input('What is your next step? (1-9) : ')
@@ -106,7 +106,7 @@ def main():
 
         playerLetter, botLetter = printWelcome()
 
-        turn = WhoGoesFirst()
+        turn = whoGoesFirst()
         print('\n' + turn + 'goes first.')
 
         gameIsPlaying = True
@@ -116,12 +116,12 @@ def main():
             if turn == 'Player':
                 drawBoard(theBoard)
                 move = getPlayerMove(theBoard)
-                makeMove(board, playerletter, move)
+                makeMove(theBoard, playerLetter, move)
 
 
             else:
                 move = getBotMove(theBoard)
-                makeMove(board, playerletter, move)
+                makeMove(theBoard, botLetter, move)
 
 
             if not input('Do you want to play again? (yes/no) : ').lower().startswith('y') or input().lower().startswith('Y'):
@@ -130,7 +130,7 @@ def main():
 
 
 
-if __name__ =='_main_':
+if __name__ =='__main__':
     main()
 
 
